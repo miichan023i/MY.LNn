@@ -1,44 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeSwitch = document.getElementById('theme-switch');
-    const langButtons = document.querySelectorAll('.lang-btn');
-    const chapterLists = document.querySelectorAll('.chapters');
+    const themeToggle = document.getElementById('theme-toggle');
+    const languageSelect = document.getElementById('language-select');
+    const chapterListId = document.getElementById('chapter-list-id');
+    const chapterListEn = document.getElementById('chapter-list-en');
 
-    // Theme Switch functionality
-    themeSwitch.addEventListener('change', () => {
-        document.body.classList.toggle('dark-mode', themeSwitch.checked);
-        const heroSection = document.querySelector('.hero-section');
-        const lnCover = document.querySelector('.ln-cover');
-        const backgroundBlur = document.querySelector('.background-blur');
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark-mode') {
+        document.body.classList.add('dark-mode');
+        themeToggle.checked = true;
+    }
 
-        if (lnCover && backgroundBlur) {
-            const coverUrl = lnCover.src;
-            backgroundBlur.style.backgroundImage = `url('${coverUrl}')`;
+    // Toggle theme
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
         }
     });
 
-    // Language Switcher functionality
-    langButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            langButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to the clicked button
-            button.classList.add('active');
-            
-            const selectedLang = button.dataset.lang;
-            
-            // Hide all chapter lists
-            chapterLists.forEach(list => list.classList.remove('active'));
-            
-            // Show the selected chapter list
-            document.querySelector(`.${selectedLang}-chapters`).classList.add('active');
-        });
+    // Switch chapter list based on language
+    languageSelect.addEventListener('change', (event) => {
+        if (event.target.value === 'id') {
+            chapterListId.style.display = 'block';
+            chapterListEn.style.display = 'none';
+        } else {
+            chapterListId.style.display = 'none';
+            chapterListEn.style.display = 'block';
+        }
     });
-
-    // Set initial background blur image
-    const lnCover = document.querySelector('.ln-cover');
-    const backgroundBlur = document.querySelector('.background-blur');
-    if (lnCover && backgroundBlur) {
-        const coverUrl = lnCover.src;
-        backgroundBlur.style.backgroundImage = `url('${coverUrl}')`;
-    }
 });
