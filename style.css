@@ -305,3 +305,60 @@ body.dark-mode .chapter-list a:hover {
         margin-bottom: 20px;
     }
 }
+
+/* Styling for Chapter Page */
+.chapter-page {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    padding: 0 5%;
+}
+
+.chapter-content-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.chapter-content-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* Chapter Navigation */
+.chapter-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 10px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.nav-button {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    padding: 5px 15px;
+    transition: color 0.3s;
+}
+
+.nav-button:hover {
+    color: var(--link-color);
+}
+
+.nav-button.prev-button,
+.nav-button.next-button {
+    font-size: 3rem;
+    line-height: 0.8;
+}
+
+.nav-button.home-button {
+    font-size: 2.5rem;
+}
+
+/* Dark mode for chapter content */
+body.dark-mode .chapter-content-container {
+    color: var(--text-color);
+}
