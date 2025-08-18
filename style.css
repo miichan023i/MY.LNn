@@ -1,52 +1,61 @@
-/* Global Styles */
+/* General Styles & Light Mode */
+:root {
+    --header-bg-color: #d9abab;
+    --main-bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #007bff;
+    --border-color: #dddddd;
+    --status-ongoing-bg: #28a745;
+    --genre-badge-bg: #6c757d;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
 }
 
-body.dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
+a {
+    color: var(--link-color);
+    text-decoration: none;
 }
 
 /* Header */
 header {
-    background-color: #d9abab;
-    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 15px 5%;
+    background-color: var(--header-bg-color);
+    color: white;
 }
 
 .header-left .logo-text {
-    color: white;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
+    color: white;
 }
 
-.header-center .logo {
-    height: 50px;
+.main-logo {
+    height: 40px;
 }
 
-.header-right {
+.theme-switch-wrapper {
     display: flex;
     align-items: center;
 }
 
-/* Theme Switch */
-.switch {
+.theme-switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
 }
 
-.switch input {
+.theme-switch input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -75,7 +84,7 @@ header {
 }
 
 input:checked + .slider {
-    background-color: #ff69b4; /* Pink color for on state */
+    background-color: #ff69b4; /* Pink color when checked */
 }
 
 input:checked + .slider:before {
@@ -90,243 +99,209 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-/* Hero Section */
-.hero-section {
+/* Main Content */
+main {
+    padding-bottom: 50px;
+}
+
+.novel-info-section {
     position: relative;
-    width: 100%;
-    height: 400px; /* Adjust as needed */
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    padding: 100px 0;
     overflow: hidden;
 }
 
-.background-blur {
+.novel-cover-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: url('placeholder-cover.jpg');
     background-size: cover;
     background-position: center;
-    filter: blur(10px);
+    filter: blur(20px);
+    z-index: -1;
+}
+
+.novel-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 900px;
     z-index: 1;
 }
 
-.ln-cover {
-    position: relative;
-    height: 350px;
-    width: auto;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-    margin-bottom: -150px; /* To overlap with the section below */
-}
-
-.content-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--main-bg-color);
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    transform: translateY(-50px);
-    position: relative;
-    z-index: 3;
-}
-
-/* Main Content */
-.ln-details {
-    text-align: center;
+.cover-container {
     margin-bottom: 20px;
 }
 
-.ln-details h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.novel-cover {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.synopsis {
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 20px;
-}
-
-.info-and-language {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.info-table-container {
-    flex: 2;
-    min-width: 300px;
-}
-
-.info-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #d9abab;
-    border-radius: 8px;
-    overflow: hidden;
-    color: #333;
-}
-
-.info-table th, .info-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #c09a9a;
-}
-
-.info-table th {
-    font-weight: bold;
-    color: #555;
-}
-
-.info-table tr:last-child th, .info-table tr:last-child td {
-    border-bottom: none;
-}
-
-.info-table td .status {
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.9em;
-    color: white;
-}
-
-.status.ongoing {
-    background-color: #5cb85c;
-}
-
-.genre-tag {
-    background-color: #fff;
-    color: #333;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-right: 5px;
-    font-size: 0.85em;
-    white-space: nowrap;
-}
-
-.language-selector {
-    flex: 1;
-    min-width: 200px;
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 8px;
+.novel-details-summary {
     text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
-.language-selector h3 {
+.novel-title {
+    font-size: 2.5rem;
     margin-top: 0;
 }
 
-.language-options button {
-    background-color: #ccc;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
+.novel-synopsis {
+    line-height: 1.6;
 }
 
-.language-options button.active {
-    background-color: #d9abab;
+/* Details and Chapters Section */
+.details-and-chapters {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 5%;
+}
+
+.details-container, .chapters-container {
+    width: 48%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.novel-details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.novel-details-table th,
+.novel-details-table td {
+    text-align: left;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.novel-details-table th {
+    font-weight: bold;
+    width: 30%;
+}
+
+.novel-details-table tr:last-child td,
+.novel-details-table tr:last-child th {
+    border-bottom: none;
+}
+
+.status-badge, .genre-badge {
     color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
-/* Chapter List */
-.chapter-list {
-    margin-top: 40px;
+.status-badge.ongoing {
+    background-color: var(--status-ongoing-bg);
 }
 
-.chapter-list h2 {
-    font-size: 2em;
-    border-bottom: 2px solid #d9abab;
-    padding-bottom: 10px;
+.genre-badge {
+    background-color: var(--genre-badge-bg);
+    margin-right: 5px;
 }
 
-.chapters {
+.chapter-language-select {
+    margin-bottom: 20px;
+}
+
+.chapter-list ul {
     list-style: none;
     padding: 0;
-    display: none;
 }
 
-.chapters.active {
+.chapter-list li {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chapter-list li:last-child {
+    border-bottom: none;
+}
+
+.chapter-list a {
     display: block;
+    color: var(--text-color);
+    transition: color 0.3s;
 }
 
-.chapters li a {
-    display: block;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #f0f0f0;
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.2s;
+.chapter-list a:hover {
+    color: var(--link-color);
 }
-
-.chapters li a:hover {
-    background-color: #e0e0e0;
-}
-
-/* Dark Mode Specific Styles */
-body.dark-mode .content-wrapper,
-body.dark-mode .info-table,
-body.dark-mode .language-selector,
-body.dark-mode .chapters li a {
-    background-color: #1a1a1a;
-    color: #f0f0f0;
-}
-
-body.dark-mode .info-table th, body.dark-mode .info-table td {
-    border-bottom-color: ‎#d9abab;
-    color: #ccc;
-}
-
-body.dark-mode .genre-tag {
-    background-color: ‎#d9abab;
-    color: #fff;
-}
-
-body.dark-mode .chapters li a {
-    color: #f0f0f0;
-}
-
-body.dark-mode .chapters li a:hover {
-    background-color: #2b2b2b;
-}
-
-body.dark-mode .language-options button {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-body.dark-mode .language-options button.active {
-    background-color: #d9abab;
-    color: white;
-}
-
 
 /* Footer */
 footer {
-    background-color: #d9abab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    text-align: center;
-    margin-top: 40px;
+    background-color: var(--header-bg-color);
 }
 
-.social-media a img {
+.footer-content a img {
     height: 30px;
-    margin: 0 10px;
-    transition: transform 0.2s;
+    margin: 0 15px;
 }
 
-.social-media a img:hover {
-    transform: scale(1.1);
+/* Dark Mode */
+body.dark-mode {
+    --main-bg-color: #121212;
+    --text-color: #e0e0e0;
+    --link-color: #ff69b4;
+    --border-color: #444444;
+}
+
+body.dark-mode .novel-details-summary {
+    background: rgba(30, 30, 30, 0.8);
+    color: var(--text-color);
+}
+
+body.dark-mode .details-container,
+body.dark-mode .chapters-container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .chapter-list a {
+    color: var(--text-color);
+}
+
+body.dark-mode .chapter-list a:hover {
+    color: var(--link-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .details-and-chapters {
+        flex-direction: column;
+    }
+    .details-container, .chapters-container {
+        width: 100%;
+    }
+    .novel-info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .novel-cover {
+        margin-bottom: 20px;
+    }
 }
