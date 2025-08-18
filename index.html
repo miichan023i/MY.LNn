@@ -3,105 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baca LN - Light Novel</title>
+    <title>Baca LN - Nama Light Novel</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="header-left">
-            <span class="logo-text">Baca LN</span>
+            <a href="#" class="logo-text">Baca LN</a>
         </div>
         <div class="header-center">
-            <img src="https://png.pngtree.com/png-clipart/20190604/original/pngtree-business-logo-design-png-image_915991.jpg" alt="Logo" class="logo">
+            <img src="placeholder-logo.png" alt="Logo" class="main-logo">
         </div>
         <div class="header-right">
-            <label class="switch">
-                <input type="checkbox" id="theme-switch">
-                <span class="slider round"></span>
-            </label>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle">
+                    <div class="slider round"></div>
+                </label>
+            </div>
         </div>
     </header>
 
     <main>
-        <div class="hero-section">
-            <div class="background-blur"></div>
-            <div class="cover-container">
-                <img src="https://phoenixgramedia.id/wp-content/uploads/2024/04/Alya-1-Cover-Depan.jpg" alt="LN Cover" class="ln-cover">
-            </div>
-        </div>
-
-        <div class="content-wrapper">
-            <div class="ln-details">
-                <h1>Judul Light Novel</h1>
-                <p class="synopsis">Ini adalah sinopsis singkat dari light novel tersebut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <div class="info-and-language">
-                <div class="info-table-container">
-                    <table class="info-table">
-                        <tr>
-                            <th>Title</th>
-                            <td>The Light Novel Title</td>
-                        </tr>
-                        <tr>
-                            <th>Judul</th>
-                            <td>Judul Light Novel</td>
-                        </tr>
-                        <tr>
-                            <th>Tanggal Rilis</th>
-                            <td>19 Agustus 2025</td>
-                        </tr>
-                        <tr>
-                            <th>Status</th>
-                            <td><span class="status ongoing">Ongoing</span></td>
-                        </tr>
-                        <tr>
-                            <th>Penulis</th>
-                            <td>Nama Penulis</td>
-                        </tr>
-                        <tr>
-                            <th>Genre</th>
-                            <td>
-                                <span class="genre-tag">Romance</span>
-                                <span class="genre-tag">School</span>
-                                <span class="genre-tag">Slice Of Life</span>
-                                <span class="genre-tag">Drama</span>
-                                <span class="genre-tag">Comedy</span>
-                            </td>
-                        </tr>
-                    </table>
+        <section class="novel-info-section">
+            <div class="novel-cover-bg"></div>
+            <div class="novel-info-container">
+                <div class="cover-container">
+                    <img src="placeholder-cover.jpg" alt="Cover Light Novel" class="novel-cover">
                 </div>
-
-                <div class="language-selector">
-                    <h3>Pilih Bahasa</h3>
-                    <div class="language-options">
-                        <button class="lang-btn active" data-lang="id">Bahasa Indonesia</button>
-                        <button class="lang-btn" data-lang="en">English</button>
-                    </div>
+                <div class="novel-details-summary">
+                    <h1 class="novel-title">Judul Light Novel</h1>
+                    <p class="novel-synopsis">
+                        Sinopsis dari Light Novel ini. Jelaskan secara singkat apa isi cerita, karakter utama, dan konfliknya. Sinopsis ini bisa sangat panjang tergantung kebutuhan Anda. Sinopsis ini bisa sangat panjang tergantung kebutuhan Anda.
+                    </p>
                 </div>
             </div>
-            
-            <div class="chapter-list">
-                <h2>Daftar Bab</h2>
-                <ul class="chapters id-chapters active">
-                    <li><a href="#">Bab 1: Awal Petualangan</a></li>
-                </ul>
-                <ul class="chapters en-chapters">
-                    <li><a href="#">Chapter 1: The Beginning of an Adventure</a></li>
-                </ul>
+        </section>
+
+        <section class="details-and-chapters">
+            <div class="details-container">
+                <table class="novel-details-table">
+                    <tr>
+                        <th>Title (English)</th>
+                        <td>The Title of the Light Novel</td>
+                    </tr>
+                    <tr>
+                        <th>Judul (Indonesia)</th>
+                        <td>Judul Light Novel</td>
+                    </tr>
+                    <tr>
+                        <th>Tanggal Rilis</th>
+                        <td>19 Agustus 2025</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>
+                            <span class="status-badge ongoing">Ongoing</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Penulis</th>
+                        <td>Nama Penulis</td>
+                    </tr>
+                    <tr>
+                        <th>Genre</th>
+                        <td>
+                            <span class="genre-badge">Fantasy</span>
+                            <span class="genre-badge">Action</span>
+                            <span class="genre-badge">Adventure</span>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        </div>
+
+            <div class="chapters-container">
+                <div class="chapter-language-select">
+                    <label for="language-select">Pilih Bahasa:</label>
+                    <select id="language-select">
+                        <option value="id">Bahasa Indonesia</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+
+                <div id="chapter-list-id" class="chapter-list">
+                    <h2>Daftar Bab</h2>
+                    <ul>
+                        <li><a href="#">Bab 1: Awal dari Perjalanan</a></li>
+                        <li><a href="#">Bab 2: Pertemuan Tak Terduga</a></li>
+                        <li><a href="#">Bab 3: Kekuatan Baru</a></li>
+                    </ul>
+                </div>
+                
+                <div id="chapter-list-en" class="chapter-list" style="display:none;">
+                    <h2>Chapter List</h2>
+                    <ul>
+                        <li><a href="#">Chapter 1: The Beginning of the Journey</a></li>
+                        <li><a href="#">Chapter 2: Unexpected Encounter</a></li>
+                        <li><a href="#">Chapter 3: New Power</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <div class="social-media">
-            <a href="#" target="_blank"><img src="https://www.instagram.com/mii_chan02i?igsh=d2JsNTVtcnZnNDJz " alt="Ihttps://www.pinclipart.com/picdir/middle/1-13590_instagram-logo-insta-logo-png-transparent-background-clipart.png"></a>
-            <a href="#" target="_blank"><img src="https://x.com/MII_Chan02I?s=09" alt="https://toppng.com/public/uploads/preview/twitter-x-new-logo-round-icon-png-11692480241tdbz6jparr.webp"></a>
-            <a href="#" target="_blank"><img src="https://www.tiktok.com/@mii_chan02i?_t=ZS-8ywpHjH5Fma&_r=1" alt="https://static.vecteezy.com/system/resources/previews/006/057/996/original/tiktok-logo-on-transparent-background-free-vector.jpg"></a>
+        <div class="footer-content">
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                <img src="instagram-logo.png" alt="Instagram Logo">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                <img src="twitter-logo.png" alt="Twitter Logo">
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+                <img src="tiktok-logo.png" alt="TikTok Logo">
+            </a>
         </div>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
