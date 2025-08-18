@@ -1,0 +1,87 @@
+/* Chapter Page Specific Styles */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.chapter-content {
+    padding: 20px 5%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.chapter-content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+.chapter-content p {
+    text-align: justify;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    /* Indent the first line of each paragraph */
+    text-indent: 2em; /* 0.5 inches is approximately 2em */
+    font-size: 1rem;
+    transition: font-size 0.3s ease;
+}
+
+.font-size-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.font-size-controls button {
+    background-color: var(--header-bg-color);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.font-size-controls button:hover {
+    filter: brightness(1.2);
+}
+
+.chapter-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: var(--header-bg-color);
+}
+
+.nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link.disabled {
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+
+/* Inherit styles from the main stylesheet */
+body.dark-mode .font-size-controls button {
+    background-color: #ff69b4;
+}
